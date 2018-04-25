@@ -6,6 +6,9 @@ RUN apt-get update \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip
 
+RUN apt-get install -y sqlite3 libsqlite3-dev
+
+
 RUN mkdir webhook
 
 ADD . webhook/

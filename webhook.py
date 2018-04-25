@@ -12,6 +12,13 @@ def get_user_by_id_view():
     json_user= get_user_by_id(id_user)
     return jsonify(json_user)
 
+@app.route('/add_phone', methods =["GET"])
+def add_phone_view():
+    phone = request.args.get('phone')
+    name = request.args.get('name',default ='')
+    id_user = add_user_db(phone)
+    return jsonify(id_user)
+
 @app.route("/by_phone", methods=['GET'])
 def get_user_by_phone_view():
     phone_user = request.args.get('phone')
